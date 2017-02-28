@@ -1,0 +1,29 @@
+{
+    "round": 1,
+    "player_count": 4,
+    "player_id": [2013, 2124, 1084, 11],
+    "player_action": [0,1,2,3],
+    "item_count": 2,
+    "item_properties": [
+        [
+            "type": 1,
+            "pos": [1,2],
+            "action": 0
+        ],
+        [
+            "type": 2,
+            "pos": [3,5],
+            "action": 1
+        ]
+    ],
+    "dead":[
+        {
+            "player_id": 1,
+            "reason": -10001
+        },
+        {
+            "player_id": 2,
+            "reason": -10003
+        }
+    ]
+}

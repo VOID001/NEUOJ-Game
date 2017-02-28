@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>NEUOJ Game -- Demo</title>
+        <link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css"/>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    </head>
+    <body>
+         <div class="container">
+             <h3 class="header blue-text">NEUOJ Game [Demo]</h3>
+             <button class="waves-effect pink btn-floating" onClick="$('#new').modal('open')">+</button>
+             <table>
+                 <thead>
+                 <th><b>#</b></th>
+                 <th>Name</th>
+                 <th>Player1</th>
+                 <th>Player2</th>
+                 <th>Player3</th>
+                 <th>Player4</th>
+                 <th>Option</th>
+                 </thead>
+                 <tbody>
+                    <?php foreach($gameObj as $game) {?>
+                    <tr>
+                        <td><?php echo $game->id; ?></td>
+                        <td><?php echo $game->name; ?></td>
+                        <td><?php echo $game->p1_id; ?></td>
+                        <td><?php echo $game->p2_id; ?></td>
+                        <td><?php echo $game->p3_id; ?></td>
+                        <td><?php echo $game->p4_id; ?></td>
+                        <td>
+                            <?php if($game->status == 0){?><a class="btn waves-effect green" href="/join/<?php echo $game->id ?>">Join!</a><?php } ?>
+	                        <?php if($game->status == 1){?><a class="btn waves-effect red">Running...</a><?php } ?>
+                            <?php if($game->status == 2){?><a class="btn waves-effect blue" href="/view/<?php echo $game->id ?>">View</a><?php } ?>
+                        </td>
+	                <?php } ?>
+                    </tr>
+                 </tbody>
+             </table>
+         </div>
+         <div id="new" class="modal modal-fixed-footer">
+             <form action="/new" method="POST" enctype="multipart/form-data">
+                 <div class="modal-content">
+                     <h3>New Game</h3>
+                     <p>This will create a new game, you can join a game by clicking 'join'</p>
+                     <label for="player_cnt">Player count</label>
+                     <p class="range-field">
+                         <input type="range" id="player_cnt" name="player_cnt" min="2" max="4" step="1"/>
+                     </p>
+                     <label for="p1_name">NEUOJ-ID</label>
+                     <input id="p1_name" type="text" name="name"/>
+                     <label for="room">Room Name</label>
+                     <input id="room" name="room_name" value="泡泡堂大作战"/>
+                     <label for="lang">Language</label>
+                     <input type="text" name="lang" value="C"/>
+                     <label for="file">Upload Source Code</label>
+                     <input id="file" type="file" name="source" />
+                 </div>
+                 <div class="modal-footer">
+                    <input type="submit" class="btn waves-effect" value="Create"/>
+                 </div>
+             </form>
+         </div>
+         <script>
+             $(document).ready(function(){
+                 // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                 $('.modal').modal();
+             });
+         </script>
+    </body>
+</html>

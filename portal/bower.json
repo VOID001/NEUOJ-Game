@@ -1,0 +1,27 @@
+{
+  "name": "neuoj-game-portal",
+  "homepage": "https://github.com/VOID001/NEUOJ-Game",
+  "authors": [
+    "Jianqiu Zhang <zhangjianqiu13@gmail.com>"
+  ],
+  "description": "NEUOJ Gaming Platform Web Portal",
+  "main": "",
+  "keywords": [
+    "oj",
+    "php",
+    "web",
+    "materialize"
+  ],
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.98.0"
+  }
+}
